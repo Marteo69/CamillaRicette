@@ -68,7 +68,7 @@ main {
 aside {
   flex: 1;
 
-  width: 10px;
+  min-width: 10px;
 
   background-color: #ffe8ee;
   padding: 20px;
@@ -213,4 +213,58 @@ footer {
 
   box-shadow: 0px 1px 5px;
 
+}
+
+
+
+
+
+
+/* --- RESPONSIVE FIX FOR MOBILE --- */
+@media (max-width: 800px) {
+  
+  /* 1. Fix the Header (300px margin is way too big for phones) */
+  body > header {
+    margin: 20px 10px;
+  }
+
+  /* 2. Stack Sidebar under the Main content */
+  .main-container {
+    flex-direction: column;
+    margin: 0 10px;
+  }
+
+  /* 3. Stack Article Image and Text vertically */
+  article {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  /* 4. Make image and text full width */
+  .sinistra, .destra {
+    flex: 1;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 5. Center the images on mobile */
+  .sinistra figure img {
+    width: 100%;
+    max-width: 300px; /* Prevents the image from getting too huge */
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  /* 6. Fix the Sidebar width and margins */
+  aside {
+    width: 100% !important; /* Overwrites the 10px width */
+    margin-top: 20px;
+    min-width: unset;
+  }
+
+  /* 7. Fix Footer margins */
+  footer {
+    margin: 10px;
+  }
 }
